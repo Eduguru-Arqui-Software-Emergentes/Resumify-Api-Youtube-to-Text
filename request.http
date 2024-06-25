@@ -8,3 +8,20 @@ Content-Type: application/json
 {
     "url": "https://www.youtube.com/watch?v=cz-DaqClllQ"
 }
+
+### Endpoint para resumir el texto
+POST http://localhost:5000/summarize
+Content-Type: application/json
+
+{
+    "text": "Hoy te voy a enseñar cómo puedes usar inteligencia artificial y Python para pasar un vídeo de YouTube a texto. Lo primero y más importante es que necesitas estas dependencias, whisper, pyTube y por supuesto ffmp. Importamos las dependencias de pyTube y whisper. Creamos una variable con nuestro vídeo de YouTube y una variable donde vamos a cargar el modelo de whisper. En este caso vamos a utilizar el small que es bastante rápido y funciona bien. Recuperamos el vídeo de YouTube con pyTube y lo convertimos en audio. Vamos a descargar este archivo de audio. Creamos una variable result donde guardaremos los resultados del modelo una vez que estamos transcribiendo el archivo que habíamos descargado. Y finalmente solo tenemos que printar los resultados. Guardamos los cambios y ejecutamos nuestro fichero. Es normal que tarde un poco porque tiene que descargarse el modelo que son unos cuantos megas y además utilizando Machine Learning va a entender el audio. Y después de un rato ya tenemos justamente el texto de nuestro vídeo transcrito. Si te ha gustado esto dale like."
+}
+
+### Endpoint para traducir el texto
+POST http://localhost:5000/translate
+Content-Type: application/json
+
+{
+    "text": "Hoy te voy a enseñar cómo puedes usar inteligencia artificial y Python para pasar un vídeo de YouTube a texto. Lo primero y más importante es que necesitas estas dependencias, whisper, pyTube y por supuesto ffmp. Importamos las dependencias de pyTube y whisper. Creamos una variable con nuestro vídeo de YouTube y una variable donde vamos a cargar el modelo de whisper. En este caso vamos a utilizar el small que es bastante rápido y funciona bien. Recuperamos el vídeo de YouTube con pyTube y lo convertimos en audio. Vamos a descargar este archivo de audio. Creamos una variable result donde guardaremos los resultados del modelo una vez que estamos transcribiendo el archivo que habíamos descargado. Y finalmente solo tenemos que printar los resultados. Guardamos los cambios y ejecutamos nuestro fichero. Es normal que tarde un poco porque tiene que descargarse el modelo que son unos cuantos megas y además utilizando Machine Learning va a entender el audio. Y después de un rato ya tenemos justamente el texto de nuestro vídeo transcrito. Si te ha gustado esto dale like.",
+    "language": "en"
+}

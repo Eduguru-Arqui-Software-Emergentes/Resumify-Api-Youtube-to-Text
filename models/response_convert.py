@@ -1,4 +1,4 @@
-class Response:
+class ResponseConvert:
     def __init__(self, url: str, message: str, lang: str):
         self.url = url
         self.message = message

@@ -1,7 +1,7 @@
 import whisper
 from langdetect import detect
 from pytube import YouTube
-from models.response import Response
+from models.response_convert import ResponseConvert
 import os
 import tempfile
 from io import BytesIO
@@ -28,7 +28,7 @@ def convert_yt_to_text(urlYT: str):
         temp_wav_file_path = temp_wav_file.name
 
     # Load the base model and transcribe the audio
-    model = whisper.load_model("small")
+    model = whisper.load_model("base")
     result = model.transcribe(temp_wav_file_path)
     transcribed_text = result["text"]
     language = detect(transcribed_text)
@@ -37,7 +37,7 @@ def convert_yt_to_text(urlYT: str):
     os.remove(temp_wav_file_path)
     print(f"Transcribed text: {transcribed_text}")
 
-    return Response(url=urlYT, message=transcribed_text, lang=language).to_dict()
+    return ResponseConvert(url=urlYT, message=transcribed_text, lang=language).to_dict()
 
 def convert_audio_to_text(file):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_file:
@@ -52,4 +52,4 @@ def convert_audio_to_text(file):
     os.remove(temp_file.name)
 
     print(f"Transcribed text: {transcribed_text}")
-    return Response(url="", message=transcribed_text, lang=language).to_dict()
+    return ResponseConvert(url="", message=transcribed_text, lang=language).to_dict()
