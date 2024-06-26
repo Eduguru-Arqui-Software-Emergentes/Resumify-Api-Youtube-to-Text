@@ -1,13 +1,11 @@
-import goslate
+import translators as ts
 
-gs = goslate.Goslate()
 
 def translate_text(text: str, language: str):
-    language_id = gs.detect(text)
-    translated_text = gs.translate(text, language)
+    translated_text = ts.translate_text(text, translator="bing", from_language= 'es', to_language= language)
 
     return {
         "text": translated_text,
-        "from": language_id,
+        "from": 'es',
         "to": language
     }

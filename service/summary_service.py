@@ -4,7 +4,7 @@ from models.response_summary import ResponseSummary
 
 def summarize_text(text: str):
     stop_words = set(stopwords.words("spanish"))
-    words = word_tokenize(text)
+    words = word_tokenize(text, language="spanish")
     freq_table = dict()
     for word in words:
         word = word.lower()
@@ -15,7 +15,7 @@ def summarize_text(text: str):
         else:
             freq_table[word] = 1
 
-    sentences = sent_tokenize(text)
+    sentences = sent_tokenize(text, language="spanish")
     sentence_value = dict()
     for sentence in sentences:
         for word, freq in freq_table.items():
